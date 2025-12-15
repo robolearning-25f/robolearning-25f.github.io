@@ -8,350 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      /* Color System */
-      --primary: #5E2B97;
-      --primary-light: #F2EAFB;
-      --text: #222222;
-      --text-light: #666666;
-      --bg: #FFFFFF;
-      --border: #EAEAEA;
-      --shadow: 0 2px 12px rgba(0,0,0,0.05);
-      --shadow-hover: 0 6px 20px rgba(0,0,0,0.1);
-
-      /* Spacing System */
-      --space-sm: 16px;
-      --space-md: 24px;
-      --space-lg: 32px;
-      --space-xl: 40px;
-      --space-xxl: 60px;
-
-      /* Typography */
-      --text-base: 16px;
-      --text-sm: 14px;
-      --text-lg: 18px;
-
-      --radius: 6px;
-      --radius-lg: 12px;
-      --transition: all 0.2s ease;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      line-height: 1.6;
-      background-color: var(--bg);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 var(--space-lg);
-    }
-
-    .content-width {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    section {
-      padding: var(--space-md) 0;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.5s ease-out;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: var(--space-sm);
-      text-align: center;
-      margin-top: var(--space-lg);
-      background: linear-gradient(90deg, var(--primary), #8E44AD);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    h2 {
-      font-size: 1.75rem;
-      font-weight: 600;
-      margin-bottom: var(--space-xl);
-      position: relative;
-      text-align: center;
-    }
-
-    h2:after {
-      content: '';
-      position: absolute;
-      bottom: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary), #8E44AD);
-      border-radius: 3px;
-    }
-
-    h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin: var(--space-xl) 0 var(--space-md);
-      color: var(--primary);
-      text-align: center;
-    }
-
-    p {
-      margin-bottom: var(--space-md);
-      font-size: var(--text-base);
-      text-align: left;
-    }
-
-    /* Authors Section */
-    .authors-container {
-      margin: var(--space-xl) 0;
-      text-align: center;
-    }
-
-    .authors-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px 24px;
-      margin-bottom: 12px;
-    }
-
-    .author-block {
-      font-size: 17px;
-      line-height: 1.4;
-    }
-
-    .author-block a {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 500;
-      transition: var(--transition);
-    }
-
-    .author-block a:hover {
-      color: var(--primary);
-    }
-
-    /* Affiliations */
-    .affiliations {
-      margin: var(--space-md) 0 var(--space-xl);
-      text-align: center;
-      font-size: 15px;
-      color: var(--text-light);
-    }
-
-    /* Content Blocks */
-    .abstract-container {
-      background-color: var(--primary-light);
-      padding: var(--space-lg);
-      border-radius: var(--radius);
-      margin-bottom: var(--space-xl);
-    }
-
-    .abstract-container p {
-      text-align: left;
-      margin-bottom: var(--space-sm);
-    }
-
-    /* Media Elements */
-    .teaser {
-      width: 100%;
-      max-width: 80%;
-      border-radius: var(--radius);
-      margin: var(--space-xl) auto;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-      display: block;
-    }
-
-    .teaser-centered {
-      text-align: center;
-      margin: var(--space-xl) 0;
-    }
-
-    /* Task Visualization Grid */
-    .task-grid {
-      margin: var(--space-xl) 0;
-    }
-
-    .task-row {
-      display: grid;
-      grid-template-columns: 120px 1fr 1fr;
-      gap: var(--space-md);
-      align-items: center;
-      margin-bottom: var(--space-lg);
-      padding: var(--space-md);
-      background-color: #FAFAFA;
-      border-radius: var(--radius);
-    }
-
-    .task-label {
-      font-weight: 600;
-      color: var(--primary);
-    }
-
-    .task-media {
-      width: 100%;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-
-    /* Table */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: var(--space-xl) auto;
-      box-shadow: var(--shadow);
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-
-    th, td {
-      padding: var(--space-sm);
-      text-align: center;
-      border-bottom: 1px solid var(--border);
-    }
-
-    th {
-      font-weight: 600;
-      background-color: var(--primary-light);
-      color: var(--primary);
-    }
-
-    tr:hover {
-      background-color: #FAFAFA;
-    }
-
-    .highlight {
-      background-color: var(--primary-light);
-      font-weight: 500;
-    }
-
-    /* Error Analysis */
-    .error-images {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-lg);
-      margin: var(--space-xl) 0;
-    }
-
-    .error-image-container {
-      text-align: center;
-    }
-
-    .error-image-container img {
-      width: 100%;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      margin-bottom: var(--space-sm);
-    }
-
-    .error-caption {
-      font-size: var(--text-sm);
-      color: var(--text-light);
-      font-weight: 500;
-    }
-
-    /* Summary Points */
-    .summary-list {
-      background-color: var(--primary-light);
-      padding: var(--space-lg);
-      border-radius: var(--radius);
-      margin: var(--space-xl) 0;
-    }
-
-    .summary-list ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .summary-list li {
-      padding: var(--space-sm) 0;
-      padding-left: 30px;
-      position: relative;
-    }
-
-    .summary-list li:before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: var(--primary);
-      font-weight: bold;
-      font-size: 1.2em;
-    }
-
-    /* Footer */
-    footer {
-      padding: var(--space-xxl) 0;
-      text-align: center;
-      color: var(--text-light);
-      font-size: var(--text-sm);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      :root {
-        --space-xxl: 48px;
-        --space-xl: 28px;
-      }
-
-      .container {
-        padding: 0 var(--space-md);
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      h2 {
-        font-size: 1.5rem;
-      }
-
-      .task-row {
-        grid-template-columns: 1fr;
-      }
-
-      .error-images {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Floating animation */
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-8px);
-      }
-    }
-
-    .floating {
-      animation: float 3s ease-in-out infinite;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
@@ -398,7 +55,7 @@
       <div class="content-width">
         <h2>Key Idea</h2>
         <div class="teaser-centered">
-          <img src="src/overall.gif" alt="HDMI-DP Overview" class="teaser">
+          <video src="moti.webm" class="teaser" autoplay loop muted playsinline id="mainVideo"></video>
           <p style="text-align: center; margin-top: var(--space-md); font-weight: 500;">
             <strong>Direct perception enables humanoid loco-manipulation without motion capture.</strong><br>
             Instead of relying on ground-truth object poses or contact states, HDMI-DP estimates task-critical signals directly from egocentric camera observations and learned perception modules, enabling deployment in environments where external sensing infrastructure is unavailable.
@@ -450,21 +107,24 @@
           </thead>
           <tbody>
             <tr>
-              <td>69.2°</td>
+              <td>69.4°</td>
               <td>0.384 ± 0.175</td>
               <td>0.272 ± 0.171</td>
-              <td>--</td>
-              <td>--</td>
+              <td>2.210 ± 5.330</td>
+              <td>1.873 ± 2.537</td>
             </tr>
             <tr>
-              <td>120°</td>
-              <td>--</td>
-              <td>--</td>
-              <td>--</td>
-              <td>--</td>
+              <td>90°</td>
+              <td>0.626 ± 0.289</td>
+              <td>0.278 ± 0.197</td>
+              <td>1.402 ± 2.021</td>
+              <td>1.506 ± 2.108</td>
             </tr>
           </tbody>
         </table>
+        <p style="text-align: center; font-size: var(--text-sm); color: var(--text-light); margin-top: calc(-1 * var(--space-md)); margin-bottom: var(--space-xl);">
+          Perception accuracy (3D contact points and 2D track points) and odometry drift for different egocentric camera FOVs.
+        </p>
 
         <h3>Perception-Driven Control in Simulation</h3>
         <p style="text-align: center;">
@@ -475,60 +135,98 @@
           <div class="task-row">
             <div class="task-label">Push Box</div>
             <div>
-              <img src="src/push_box_2d.gif" alt="Push Box Egocentric View" class="task-media">
+              <img src="pushboxego.gif" alt="Push Box Egocentric View" class="task-media">
               <p style="text-align: center; font-size: var(--text-sm); margin-top: 8px; color: var(--text-light);">Egocentric View</p>
             </div>
             <div>
-              <img src="src/push_box_3d.gif" alt="Push Box 3D Visualization" class="task-media">
-              <p style="text-align: center; font-size: var(--text-sm); margin-top: 8px; color: var(--text-light);">3D Visualization</p>
-            </div>
-          </div>
-
-          <div class="task-row">
-            <div class="task-label">Push Door</div>
-            <div>
-              <img src="src/push_door_2d.gif" alt="Push Door Egocentric View" class="task-media">
-              <p style="text-align: center; font-size: var(--text-sm); margin-top: 8px; color: var(--text-light);">Egocentric View</p>
-            </div>
-            <div>
-              <img src="src/push_door_3d.gif" alt="Push Door 3D Visualization" class="task-media">
+              <video id="push-box-3d-video" src="pushbox3d.webm" class="task-media" autoplay muted playsinline loop></video>
               <p style="text-align: center; font-size: var(--text-sm); margin-top: 8px; color: var(--text-light);">3D Visualization</p>
             </div>
           </div>
         </div>
+        <script>
+          (function () {
+            const video = document.getElementById('push-box-3d-video');
+            if (!video) return;
+            const startTime = 5;
+            const endTime = 20;
 
-        <h3>Error Analysis</h3>
+            video.addEventListener('loadedmetadata', () => {
+              video.playbackRate = 2;
+              video.currentTime = startTime;
+            });
+
+            video.addEventListener('timeupdate', () => {
+              if (video.currentTime >= endTime) {
+                video.currentTime = startTime;
+              }
+            });
+          })();
+        </script>
+        <p style="text-align: center; font-size: var(--text-sm); color: var(--text-light);">
+          Multi-view push-box rollouts highlight perception-only policy execution (left) and the corresponding 3D tracking visualization (right).
+        </p>
+
+        <h3>Track-Point Error Profiles</h3>
         <p style="text-align: center;">
-          We visualize temporal error profiles for contact estimation during task execution:
+          Track-point accuracy is characterized in both pixel space and 3D camera coordinates:
         </p>
 
         <div class="error-images">
           <div class="error-image-container">
-            <img src="push_box_2d_error.png" alt="2D Contact Error" onerror="this.style.display='none'">
-            <p class="error-caption">2D contact error (pixels)</p>
+            <img src="src/point_error_2d.png" alt="2D Track-Point Error" onerror="this.style.display='none'">
+            <p class="error-caption">2D track-point error across the push-box sequence (pixels).</p>
           </div>
           <div class="error-image-container">
-            <img src="push_box_3d_error.png" alt="3D Contact Error" onerror="this.style.display='none'">
-            <p class="error-caption">3D contact error (centimeters)</p>
+            <img src="src/point_error_3d.png" alt="3D Track-Point Error" onerror="this.style.display='none'">
+            <p class="error-caption">3D track-point reconstruction error after depth lifting (centimeters).</p>
           </div>
+        </div>
+        <p style="text-align: center; font-style: italic; color: var(--text-light);">
+          Track-point estimation remains stable over long-horizon interactions, supporting closed-loop perception-driven control.
+        </p>
+
+        <h3>Odometry Benchmarks</h3>
+        <p style="text-align: center;">
+          Stereo MAC-VO runs entirely onboard and replaces motion-capture root pose with camera-only odometry; below are qualitative rollouts and quantitative drift metrics.
+        </p>
+
+        <div class="media-grid">
+          <figure>
+            <video src="flow_odometry.mp4" autoplay muted loop playsinline controls></video>
+            <figcaption class="media-caption">Flow odometry with dense tracked trails.</figcaption>
+          </figure>
+          <figure>
+            <video src="twoview_odometry.mp4" autoplay muted loop playsinline controls></video>
+            <figcaption class="media-caption">Two-view odometry baseline enforcing geometric checks.</figcaption>
+          </figure>
+        </div>
+
+        <div class="media-grid">
+          <figure>
+            <img src="src/Combined_RTEcdf.png" alt="Translational Error CDF">
+            <figcaption class="media-caption">Translational error CDF from MAC-VO stereo odometry.</figcaption>
+          </figure>
+          <figure>
+            <img src="src/Combined_ROEcdf.png" alt="Rotational Error CDF">
+            <figcaption class="media-caption">Rotational error CDF highlighting bounded heading drift.</figcaption>
+          </figure>
+        </div>
+
+        <div class="media-grid">
+          <figure>
+            <img src="src/MACVO_hdmi_narrow_fov_TranslationErr.png" alt="MACVO Translation Error">
+            <figcaption class="media-caption">Translational drift over time under a narrow FOV.</figcaption>
+          </figure>
+          <figure>
+            <img src="src/MACVO_hdmi_narrow_fov_RotationErr.png" alt="MACVO Rotation Error">
+            <figcaption class="media-caption">Rotational drift profile showing low orientation error.</figcaption>
+          </figure>
         </div>
 
         <p style="text-align: center; font-style: italic; color: var(--text-light);">
-          These plots highlight stable perception performance over long-horizon interactions.
+          Flow cues and multi-view geometry provide complementary odometry signals that remain bounded even under narrow FOVs.
         </p>
-      </div>
-    </section>
-
-    <section>
-      <div class="content-width">
-        <h2>Perception Proxy</h2>
-        <div class="teaser-centered">
-          <img src="src/cartpole.gif" alt="Perception Proxy" class="teaser" style="max-width: 60%;">
-          <p style="text-align: center; margin-top: var(--space-md);">
-            To further validate generality, we introduce a <strong>perception proxy</strong> setting, where simplified environments (e.g., cart-pole–like dynamics) are used to study perception–control coupling in isolation.
-            This allows controlled analysis of error propagation from visual perception to downstream control.
-          </p>
-        </div>
       </div>
     </section>
 
@@ -573,6 +271,13 @@
       sections.forEach(section => {
         observer.observe(section);
       });
+
+      // Set video playback speed to 10x and start at 30 seconds
+      const mainVideo = document.getElementById('mainVideo');
+      if (mainVideo) {
+        mainVideo.playbackRate = 10.0;
+        mainVideo.currentTime = 30;
+      }
     });
   </script>
 </body>
